@@ -11,13 +11,29 @@ set ff=unix "文件默认格式
 set tabstop=4 "tab 缩进为4个空格
 set shiftwidth=4 "自动缩进时使用4个空格
 set softtabstop=4 "编辑插入时， 把tab算作4个空格
-set expandtab "缩进使用空格
+set expandtab "缩进使用空格, 如果想要真的使用tab， c-v + tab, 这时就能够显示tab命令。 
 set autoindent "自动缩进
 set mouse=a "鼠标捕获
 syntax on "打开语法高亮
 set showtabline=2  "总是显示标签栏
 set backspace=indent,eol,start "设置backspace 可以删除行首
-"
+set list listchars=tab:>-  "将tab显示为这种样式。。
+
+" map tab 相关的, 想找那种可以获取数字的变量， 这样就不用配置这么多了。。
+map sh gt
+map sl gT
+map 1 1gt
+map 2 2gt
+map 3 3gt
+map 4 4gt
+map 5 5gt
+" 关闭当前的窗口
+map sc :tabc<CR>
+" 列出所有的tabs
+map ss :tabs<CR>
+nmap td :tabnew .<cr>
+vmap <buffer> ,w :w! ~/tmp.file<CR>
+map ,p :r ~/tmp.file<CR>
 let mapleader="," "一定要设置这个变量， 然后可以在普通模式<ESC> 下动态加载.vimrc
 nmap <leader>s :source ~/.vimrc<CR>
 nmap <leader>e :e ~/.vimrc<CR> 
@@ -40,7 +56,9 @@ Plugin 'VundleVime/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'tpope/vim-fugitive'
-Plugin 'ervandew/supertab'
+Plugin 'suan/vim-instant-markdown'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'msanders/snipmate.vim'
 call vundle#end()
 filetype plugin indent on
 
