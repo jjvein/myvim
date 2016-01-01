@@ -45,7 +45,7 @@ nmap <leader>l <C-w>l<CR>
 nmap <leader>h <C-w>h
 nmap <leader>j <C-w>j<CR>
 nmap <leader>k <C-w>k<CR>
-
+nnoremap <space> za "打开折叠
 
 "下面是Vunle 的配置文件
 set nocompatible
@@ -59,9 +59,15 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'suan/vim-instant-markdown'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'msanders/snipmate.vim'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+" Optional:
+Plugin 'honza/vim-snippets'
+
 call vundle#end()
 filetype plugin indent on
-
+filetype plugin on
 "nerdtree 配置
 let NERDTreeWinPos='left'
 autocmd StdinReadPre * let s:std_in=1
@@ -99,3 +105,6 @@ set cursorline  "当前行带有下划线。
 "visual 模式下， 修改缩进不改变模式
 vnoremap < <gv
 vnoremap > >gv
+
+imap <TAB> <Plug>snipMateTrigger
+
